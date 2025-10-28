@@ -88,6 +88,8 @@ describe("sortByName", () => {
       { name: "Squirtle" },
       { name: "Charmander" },
     ];
+    const ORIGINAL_SNAPSHOT = structuredClone(INPUT);
+
     const expectedOrder = [
       { name: "Bulbasaur" },
       { name: "Charmander" },
@@ -100,6 +102,8 @@ describe("sortByName", () => {
 
     // asserting and checking the expected results
     expect(result).toEqual(expectedOrder);
+    expect(result).not.toBe(INPUT);
+    expect(INPUT).toEqual(ORIGINAL_SNAPSHOT);
   });
 });
 
